@@ -1,37 +1,19 @@
+<<<<<<< HEAD
 # MailTrace - Email Analysis System
 
 A full-stack application that automatically identifies the receiving chain and ESP type of emails using IMAP analysis.
 
 ## 🚀 Features
 
-- **Email Analysis**: Automatically detects receiving chain and ESP type
-- **IMAP Integration**: Real-time email monitoring and processing
-- **Modern UI**: Responsive, professional interface with collapsible sidebar
-- **Real-time Updates**: Live email analysis with automatic refresh
-- **ESP Detection**: Identifies email service providers (Gmail, Outlook, SES, etc.)
-- **Receiving Chain**: Visualizes the path emails take through servers
 
 ## 🏗️ Architecture
 
 ### Frontend (Next.js)
-- **Framework**: Next.js 14 with TypeScript
-- **Styling**: Tailwind CSS with modern design system
-- **State Management**: SWR for data fetching
-- **Components**: Modular, reusable UI components
-- **Responsive**: Mobile-first design with collapsible sidebar
 
 ### Backend (NestJS)
-- **Framework**: NestJS with TypeScript
-- **Database**: MongoDB with Mongoose
-- **IMAP**: Real-time email monitoring with imapflow
-- **API**: RESTful endpoints for email analysis
-- **CORS**: Configured for frontend communication
 
 ## 📋 Prerequisites
 
-- Node.js 18+ 
-- MongoDB (local or cloud)
-- Email account with IMAP access
 
 ## 🛠️ Installation & Setup
 
@@ -131,15 +113,9 @@ npm start
 
 ### Backend API (Port 8080)
 
-- `GET /email/config` - Get email configuration
-- `GET /email/latest` - Get latest email analysis
-- `GET /stats` - Get system statistics
 
 ### Frontend API (Port 3000)
 
-- `GET /api/email/config` - Proxy to backend config
-- `GET /api/email/latest` - Proxy to backend latest
-- `GET /api/stats` - Proxy to backend stats
 
 ## 🎯 Usage
 
@@ -267,10 +243,9 @@ This project is licensed under the MIT License.
 ## 🆘 Support
 
 For support and questions:
-- Create an issue in the repository
-- Check the troubleshooting section
-- Review the API documentation
 
----
 
 **MailTrace** - Professional Email Analysis Made Simple 🚀
+=======
+# Email-Analyzer
+>>>>>>> origin/main
