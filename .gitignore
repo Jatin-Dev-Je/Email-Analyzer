@@ -1,0 +1,40 @@
+# Root ignores for Email-Analyzer (Next.js + NestJS)
+
+# Node
+node_modules/
+**/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env
+.env
+.env.*
+frontend/.env
+frontend/.env.*
+backend/.env
+backend/.env.*
+
+# OS/Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Next.js
+frontend/.next/
+frontend/out/
+frontend/.turbo/
+frontend/.vercel/
+
+# NestJS
+backend/dist/
+backend/coverage/
+
+# TypeScript build caches
+**/*.tsbuildinfo
+
+# Misc
+*.swp
+*.swo

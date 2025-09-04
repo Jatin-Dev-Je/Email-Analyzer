@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  backend:
+    build: ./backend
+    container_name: mailtrace-backend
+    environment:
+      - PORT=8080
+      # Uncomment and set for persistence and IMAP ingestion
+      # - MONGODB_URI=your-mongodb-uri
+      # - IMAP_HOST=imap.example.com
+      # - IMAP_PORT=993
+      # - IMAP_SECURE=true
+      # - IMAP_USER=your@example.com
+      # - IMAP_PASS=xxxx
+      - TEST_SUBJECT=MailTrace Test — 12345
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build: ./frontend
+    container_name: mailtrace-frontend
+    environment:
+      - NEXT_PUBLIC_API_BASE=http://localhost:8080
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
