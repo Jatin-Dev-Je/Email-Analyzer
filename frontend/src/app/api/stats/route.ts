@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import { cookies } from 'next/headers'
 import { NextResponse } from 'next/server'
 import { apiClient, fallbackData, checkBackendHealth, createApiClient } from '@/lib/api'
