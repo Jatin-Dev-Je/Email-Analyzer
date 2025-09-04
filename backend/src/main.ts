@@ -4,7 +4,25 @@ import { ValidationPipe } from '@nestjs/common'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, { cors: true })
+  const app = await NestFactory.create(AppModule)
+  // Configurable CORS (use CORS_ORIGINS=comma,separated,origins)
+  const corsOrigins = process.env.CORS_ORIGINS
+    ?.split(',')
+    .map((s) => s.trim())
+    .filter(Boolean)
+  if (corsOrigins && corsOrigins.length > 0) {
+    app.enableCors({
+      origin: (origin, callback) => {
+        if (!origin) return callback(null, true)
+        if (corsOrigins.includes(origin)) return callback(null, true)
+        return callback(new Error('Not allowed by CORS'), false)
+      },
+      credentials: true,
+    })
+  } else {
+    // Fallback: allow all (suitable for dev, tighten in prod by setting CORS_ORIGINS)
+    app.enableCors({ origin: true, credentials: true })
+  }
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }))
   app.setGlobalPrefix('')
 

@@ -1,0 +1,34 @@
+# Render blueprint for MailTrace backend
+# https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: mailtrace-backend
+    env: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    autoDeploy: true
+    rootDir: backend
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 8080
+      # Set these securely in Render dashboard or via env groups
+      - key: MONGODB_URI
+        sync: false
+      - key: IMAP_HOST
+        sync: false
+      - key: IMAP_PORT
+        sync: false
+      - key: IMAP_SECURE
+        sync: false
+      - key: IMAP_USER
+        sync: false
+      - key: IMAP_PASS
+        sync: false
+      - key: TEST_SUBJECT
+        sync: false
+      - key: CORS_ORIGINS
+        # Example: https://email-analyzer.vercel.app
+        sync: false
